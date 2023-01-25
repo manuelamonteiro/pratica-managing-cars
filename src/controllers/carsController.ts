@@ -46,7 +46,7 @@ async function deleteCar(req: Request, res: Response) {
 
   try {
     await carService.deleteCar(carId);
-    res.send(httpStatus.OK);
+    res.sendStatus(httpStatus.OK);
   } catch (e) {
     console.log(e);
     if (e.name === "NotFoundError") {

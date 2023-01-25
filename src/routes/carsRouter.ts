@@ -10,4 +10,5 @@ carsRouter.get("/cars/:carId", carController.getSpecificCar);
 carsRouter.post("/cars", validateSchemaMiddleware(carSchema), carController.createCar);
 carsRouter.delete("/cars/:carId", carController.deleteCar);
 
+
 export default carsRouter;
