@@ -71,7 +71,10 @@ async function updateCar(req: Request, res: Response) {
     await carService.updateCar(carId, car);
     res.sendStatus(httpStatus.OK);
   } catch (e) {
-
+    if (e.name === "empty_payload_error") {
+      return res.status(400).send(e.message);
+    }
+    return res.sendStatus(httpStatus.INTERNAL_SERVER_ERROR);
   }
 }
 
