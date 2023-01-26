@@ -30,11 +30,23 @@ async function deleteCar(id: number) {
   await carRepository.deleteCar(id);
 }
 
+type CarUpdate = {
+  model?: string,
+  licensePlate?: string,
+  year?: string,
+  color?: string
+}
+
+async function updateCar(id: number, car: CarUpdate) {
+  await carRepository.updateCar(id, car)
+}
+
 const carService = {
   getCars,
   getCar,
   createCar,
-  deleteCar
+  deleteCar,
+  updateCar
 }
 
 export default carService;

@@ -57,11 +57,30 @@ async function deleteCar(req: Request, res: Response) {
   }
 }
 
+type CarUpdate = {
+  model?: string,
+  licensePlate?: string,
+  year?: string,
+  color?: string
+}
+
+async function updateCar(req: Request, res: Response) {
+  const carId = parseInt(req.params.carId);
+  const car = req.body as CarUpdate;
+  try {
+    await carService.updateCar(carId, car);
+    res.sendStatus(httpStatus.OK);
+  } catch (e) {
+
+  }
+}
+
 const carController = {
   getAllCars,
   getSpecificCar,
   createCar,
-  deleteCar
+  deleteCar,
+  updateCar
 }
 
 export default carController;
