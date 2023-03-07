@@ -38,7 +38,7 @@ type CarUpdate = {
 }
 
 async function updateCar(id: number, car: CarUpdate) {
-  if ({ car }) throw { name: "empty_payload_error", message: "não foi especificada nenhuma mudança" };
+  if ({ car }) throw { name: "empty_payload_error", message: "No changes specified." };
   await carRepository.updateCar(id, car)
 
 }
